@@ -2,42 +2,43 @@
 
 ## Product
 
-**Product:** AI Product Advisor — a portfolio-level decision advisor for product organisations that weighs new requests against objectives, running work and portfolio principles, and keeps the product leader in charge of the decision.
-**Your Role:** Product & Strategy lead at a Belgian hospital-software company; owner of this bet and first user (the advisor is tested on our own portfolio).
+**Product:** Comparable Patients (working name) — a module in our hospital EHR that shows, for a given patient profile, how comparable patients were treated (care path variants A, B, C and their share) and what happened next (length of stay, 30-day readmissions), both in the user's own hospital and across all hospitals on the same EHR, pooled and pseudonymised. It describes practice and outcomes; it does not recommend a treatment. First users are care path committees and quality teams; physicians at the bedside come later.
+
+**Your Role:** Product & Strategy lead at the market-leading hospital EHR vendor in Flanders; owner of this bet.
 
 ---
 
 ## Scores
 
-### Contextual Moat — 2/5
+### Contextual Moat — 4/5
 *Workflow depth × switching cost. Would users leave in a weekend if a competitor showed up?*
 
-**Score rationale:** It sits next to the system of record (Jira, Productboard), not inside it, so users could leave in a weekend until the advisor holds their decision history.
+**Score rationale:** The data is created in our EHR across many hospitals; a single hospital's data team can analyse its own data, but only the network operator can show how its practice compares with other hospitals.
 
-**Named attacker (from partner challenge):** Atlassian Jira Product Discovery + Rovo — AI that works inside the roadmap and ideas the PM already curates. https://www.atlassian.com/software/rovo/connectors/jira-product-discovery
+**Named attacker (from partner challenge):** Microsoft Fabric healthcare data solutions — turns EHR data into the OMOP model and lets a hospital's data team build patient cohorts on its own data. https://learn.microsoft.com/en-gb/industry/healthcare/healthcare-data-solutions/overview
 
 ---
 
-### Data Advantage — 1/5
+### Data Advantage — 4/5
 *Proprietary signal that compounds with usage. What do you see that OpenAI doesn't?*
 
-**Score rationale:** Today nothing compounds: no proprietary data, and the decision log is local and per customer; the potential signal (advice → decision → outcome) does not exist yet. Lowered from 2 after the partner challenge.
+**Score rationale:** Every hospital that joins enlarges the cohorts for all others, every discharge adds a new outcome automatically, and readmissions in another hospital on the same system become visible; not a 5, because pooling depends on a legal basis and an agreement with every hospital.
 
-**Named attacker (from partner challenge):** Productboard Spark — already holds feedback, OKRs, strategy docs and roadmap, and positions itself as an agent that gets smarter every day. https://www.productboard.com/spark/
+**Named attacker (from partner challenge):** Epic Cosmos / CoMET — the same pooled-network model at a far larger scale (300M+ patients, 310 health systems), already forecasting length of stay and readmission. https://www.microsoft.com/en-us/research/?p=1148919
 
 ---
 
-### Platform Exposure — 2/5
+### Platform Exposure — 4/5
 *Encroachment risk × pivot speed. If Apple/Google/OpenAI ships your hero feature native — then what?*
 
-**Score rationale:** Synthesising OKRs, estimates and research into advice, including asking clarifying questions, is already native in general agents; pivot speed is high (small product, no legacy), but there is little left to pivot to if the method is copied.
+**Score rationale:** A consumer health model can explain guidelines, but it cannot see how patients in Belgian hospitals were treated or what happened to them; pivot speed is reasonable because the product describes rather than recommends.
 
-**Named attacker (from partner challenge):** Microsoft 365 Copilot Researcher — reasons over work data and connectors (incl. Confluence), bundled in an existing licence. https://learn.microsoft.com/microsoft-365/copilot/researcher-agent
+**Named attacker (from partner challenge):** Meta Muse Spark — free, health-focused model trained with 1,000+ physicians. https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/
 
 ---
 
 ## Top Vulnerability
-If the value is better analysis, it is a feature of Copilot, Rovo or Spark; the bet only holds if the value is the portfolio decision method and the decision history it builds.
+The moat only exists if hospitals agree to pool their data: without a legal basis for secondary use and trust that no hospital is exposed to its competitors, the network shrinks to single-hospital data that any data team can analyse. Second risk: users read "comparable patients did better with C" as a recommendation, while the difference may reflect which patients (or which hospitals' populations) got C.
 
 ## Confidence Level
-L — the need is real in my own organisation, but nothing yet proves that the method and the decision log beat a general-purpose assistant.
+M — the data and network position is strong and the use case is new, but data pooling, comparability and confounding are unproven.
