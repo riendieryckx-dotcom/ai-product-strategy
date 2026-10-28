@@ -1,22 +1,24 @@
 # The Prototype Bet
 
 ## What I Built
-A one-screen advisor that weighs a new request against a real (anonymised) hospital-software portfolio and returns impact per objective, focus conflicts, trade-off options and a stakeholder summary, then records the leader's decision so later advice builds on it.
+A one-screen view where a care path team selects a hip fracture patient profile and sees comparable past stays in a synthetic hospital: which care path variants were used and in what share, with length of stay, 30-day readmissions, cohort size, uncertainty ranges, the patient mix per care path, and an AI-written summary for the committee that explains selection effects instead of recommending a treatment.
 
 ## Tool Used
-Claude (claude.ai published artifact, live AI via Claude)
+Claude (claude.ai published artifact, live AI via Claude, with a rule-based fallback)
 
 ## Prototype Link
-https://claude.ai/artifact/4Dzy4N5DxGrbNZSSFFnCiT
+https://claude.ai/artifact/N33V65z3Lei41zDHjyqMuA
 
 ## AI Value Archetype
-Copilot (dominant) with an Oracle layer — the leader keeps the decision; the AI surfaces impact across objectives and conflicts with running work.
+Oracle — it surfaces patterns hidden in the records of all hospitals on the network; people decide what to do with them.
 
 ## The Bet in One Sentence
-Product leaders in mid-size product organisations will pay for an advisor that turns portfolio decisions into transparent, defensible trade-offs, because AI now makes it cheap to weigh every request against the whole portfolio, while general assistants analyse a request without protecting focus or remembering past decisions.
+Care path committees, and later physicians, in hospitals on our EHR will use a view of how comparable patients in their own hospital and across the network were treated and what happened next, because the EHR already captures every treatment and outcome across many hospitals, and AI now makes it feasible to find truly comparable patients in that pooled data, which no single hospital or general health model can see.
 
 ## Kill Criteria
-Design-partner test with 3 product organisations over 8 weeks. Stop if:
-- fewer than 2 of 3 partners use it for at least one real portfolio decision;
-- in a blind comparison with the same inputs, PMs prefer a general-purpose assistant (Copilot, ChatGPT, Claude) in more than half of the cases;
-- no partner is willing to sign a paid pilot or letter of intent at the end.
+Pilot with hospitals on the network, 6 months, one care path (hip fracture). Stop if:
+
+- fewer than 3 hospitals agree to pool pseudonymised data within 6 months;
+- legal and DPO review finds no workable legal basis for pooled secondary use;
+- clinical reviewers judge more than a quarter of the displayed "comparable" patients as not comparable;
+- no participating care path committee uses the view to start at least one care path discussion.
