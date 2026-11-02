@@ -30,7 +30,7 @@
 ### Network Loop - 3/5
 **What you capture today:** Confirmed outcomes per hospital, on the same EHR and the same coding rules.
 
-**How it compounds:** Each hospital that joins adds confirmed outcomes for calibration, which matters most for rare diagnoses and for severity 4, where one hospital has too few stays. Capped at 3 because this pooling needs a legal basis and agreements per hospital; without it, every hospital calibrates on its own data only.
+**How it compounds:** Each hospital that joins adds confirmed outcomes for calibration, which matters most for rare diagnoses and for severity 4, where one hospital has too few stays. Capped at 3 because each hospital is the data controller and we are its processor: pooling for our own product needs a legal basis and an agreement per hospital; without it, every hospital calibrates on its own data only.
 
 **Total Flywheel Score: 12/20**
 **Weakest Loop:** Preference
