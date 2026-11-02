@@ -22,7 +22,7 @@
 ## If Google Cloud ships a competing product:
 A cloud provider could offer hospitals a general healthcare analytics product on its own platform. What it cannot replicate:
 
-- **The pooled network:** structured treatment and outcome data from all hospitals on the same EHR, in one data model, updated with every discharge. It sits in our tenant under our contract; the provider cannot use it for its own product.
+- **The pooled network:** structured treatment and outcome data from all hospitals on the same EHR, in one data model, updated with every discharge. It sits in our own tenant, and the contract must exclude any use by the provider for its own products (to be verified with legal before go-live).
 - **Validated comparability:** similarity rules confirmed by clinical reviewers across hospitals (the Correction loop). That is our work, not the platform's.
 - **The integration in the EHR:** the view is built into the EHR where care path committees and, later, physicians already work: no export, no separate tool or login, and it opens directly from the context of the care path or the patient.
 - **The governance with hospitals:** the pooling agreement and the rule that no hospital is shown to another. Hospitals trust that arrangement with their EHR vendor; a cloud provider would have to build it from scratch, hospital by hospital.
