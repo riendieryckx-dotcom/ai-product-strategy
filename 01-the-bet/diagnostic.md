@@ -22,7 +22,7 @@
 ### Data Advantage — 3/5
 *Proprietary signal that compounds with usage. What do you see that OpenAI doesn't?*
 
-**Score rationale:** Every discharge gives us the confirmed diagnoses and the severity of illness of the stay, coded for the mandatory hospital registration, so we can measure each suggestion and calibrate its severity percentage on real outcomes. Physicians' marks on findings and suggestions add a correction signal. Capped at 3 because hospitals control the data, so cross-hospital calibration needs a legal basis and agreements per hospital, coded diagnoses follow registration rules rather than clinical truth, and suggestions that physicians follow can influence the labels they are measured against.
+**Score rationale:** Every discharge gives us the confirmed diagnoses and the severity of illness of the stay, coded for the mandatory hospital registration, so we can measure each suggestion and calibrate its severity percentage on real outcomes. Physicians' marks on findings and suggestions add a correction signal. Capped at 3 because hospitals are the data controllers and we are their processor, so calibrating our product on their outcomes needs a legal basis and an agreement per hospital, and more so across hospitals; coded diagnoses follow registration rules rather than clinical truth, and suggestions that physicians follow can influence the labels they are measured against.
 
 **Named attacker (from partner challenge):** Epic Cosmos / CoMET — diagnosis prediction trained on records of 300M+ patients from 310 health systems. https://www.microsoft.com/en-us/research/?p=1148919
 
