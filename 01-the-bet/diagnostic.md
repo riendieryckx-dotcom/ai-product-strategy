@@ -2,7 +2,7 @@
 
 ## Product
 
-**Product:** Comparable Patients (working name) — a module in our hospital EHR that shows, for a given patient profile, how comparable patients were treated (care path variants A, B, C and their share) and what happened next (length of stay, 30-day readmissions), both in the user's own hospital and across all hospitals on the same EHR, pooled and pseudonymised. It describes practice and outcomes; it does not recommend a treatment. First users are care path committees and quality teams; physicians at the bedside come later.
+**Product:** Comparable Patients (working name) — a module in our hospital EHR that shows, for a given patient profile, how comparable patients were treated (care path variants A, B, C and their share) and what happened next (length of stay, 30-day readmissions), both in the user's own hospital and across all hospitals on the same EHR, pooled and pseudonymised. It turns that variation into quality-of-care indicators (time to surgery, complications, avoidable readmissions), always shown with the patient mix, so a hospital that treats sicker patients does not look worse. It describes practice and outcomes; it does not recommend a treatment. First users are care path committees and quality teams; physicians at the bedside come later.
 
 **Your Role:** Product & Strategy lead at the market-leading hospital EHR vendor in Flanders; owner of this bet.
 
@@ -38,7 +38,7 @@
 ---
 
 ## Top Vulnerability
-The moat only exists if hospitals agree to pool their data: without a legal basis for secondary use and trust that no hospital is exposed to its competitors, the network shrinks to single-hospital data that any data team can analyse. Second risk: users read "comparable patients did better with C" as a recommendation, while the difference may reflect which patients (or which hospitals' populations) got C.
+The moat only exists if hospitals agree to pool their data: without a legal basis for secondary use and trust that no hospital is exposed to its competitors, the network shrinks to single-hospital data that any data team can analyse. Second risk: users read "comparable patients did better with C" as a recommendation, while the difference may reflect which patients (or which hospitals' populations) got C. In an international setting the vulnerability grows: the network stops where hospitals use another EHR, each country has its own rules for secondary use of health data, and differences in coding, financing and how care is organised make patients across borders harder to compare.
 
 ## Confidence Level
 M — the data and network position is strong and the use case is new, but data pooling, comparability and confounding are unproven.
