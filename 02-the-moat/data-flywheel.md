@@ -1,6 +1,6 @@
 # Data Flywheel Map
 
-Product: Comparable Patients — how comparable patients were treated and what happened next, in the user's own hospital and across all hospitals on the same EHR.
+Product: Comparable Patients — how comparable patients were treated and what happened next, translated into quality-of-care indicators, in the user's own hospital and across all hospitals on the same EHR.
 
 ## Flywheel Loops
 
@@ -14,7 +14,7 @@ Product: Comparable Patients — how comparable patients were treated and what h
 ### Correction Loop - 2/5
 **What you capture today:** Outcomes update themselves: every discharge adds length of stay and every readmission is recorded, so the figures correct over time. No signal yet on whether users agree that the "comparable" patients really are comparable.
 
-**How it compounds:** Clinical reviewers flag stays as "not comparable", with a reason. Across hospitals, those flags train the similarity rules, so comparability becomes clinically validated rather than a technical guess — the part a hospital data team cannot copy. Next step: when a committee changes a care path, it records the change and the date, and later outcomes are shown before and after the change, next to the network trend. Each hospital's improvements then become evidence for the others.
+**How it compounds:** Clinical reviewers flag stays as "not comparable", with a reason. Across hospitals, those flags train the similarity rules, so comparability becomes clinically validated rather than a technical guess — the part a hospital data team cannot copy. Next step: when a committee changes a care path, it records the change and the date, and later outcomes are shown before and after the change, next to the network trend. Each hospital's improvements then become evidence for the others. The corrected similarity rules and the measured effects of changes are also used to set up new care paths better: a committee designing a new care path starts from validated rules and sees which changes improved quality of care elsewhere, as evidence for its own choice, not as a recommendation.
 
 ### Preference Loop - 1/5
 **What you capture today:** Nothing. Every committee sees the same view.
