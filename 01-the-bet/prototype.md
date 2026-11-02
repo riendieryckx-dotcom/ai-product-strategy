@@ -13,7 +13,7 @@ https://claude.ai/artifact/N33V65z3Lei41zDHjyqMuA
 Oracle — it surfaces patterns hidden in the records of all hospitals on the network; people decide what to do with them.
 
 ## The Bet in One Sentence
-Care path committees, and later physicians, in hospitals on our EHR will use a view of how comparable patients in their own hospital and across the network were treated and what happened next, because the EHR already captures every treatment and outcome across many hospitals, and AI now makes it feasible to find truly comparable patients in that pooled data, which no single hospital or general health model can see.
+Care path committees, and later physicians, in hospitals on our EHR will use a view of how comparable patients in their own hospital and across the network were treated and what happened next, so they can see where their quality of care improves or falls behind, because the EHR already captures every treatment and outcome across many hospitals, and AI now makes it feasible to find truly comparable patients in that pooled data, which no single hospital or general health model can see.
 
 ## Kill Criteria
 Pilot with hospitals on the network, 6 months, one care path (hip fracture). Stop if:
