@@ -2,7 +2,7 @@
 
 ## Product
 
-**Product:** Comparable Patients (working name) — a module in our hospital EHR that shows, for a given patient profile, how comparable patients were treated (care path variants A, B, C and their share) and what happened next (length of stay, 30-day readmissions), both in the user's own hospital and across all hospitals on the same EHR, pooled and pseudonymised. It turns that variation into quality-of-care indicators (time to surgery, complications, avoidable readmissions), always shown with the patient mix, so a hospital that treats sicker patients does not look worse. It describes practice and outcomes; it does not recommend a treatment. First users are care path committees and quality teams; physicians at the bedside come later.
+**Product:** Relevant History (working name) — a clinical decision support module in our hospital EHR for physicians on internal medicine wards. It combines historical data (the patient's earlier stays, problem list, lab trends, medication, reports and letters, including those from other hospitals shared through the existing eHealth exchange) with new data from the current stay. It shows two things: the findings from the history that fit the current picture and are not yet in the current notes, and a short list of possible diagnoses. Each diagnosis has a likelihood label, the estimated chance that the stay reaches major or extreme severity (APR-DRG severity of illness 3–4) if it is confirmed, and links to the findings that support it. Every new result updates both lists and shows what changed. The physician decides; the module never replaces clinical judgement. First scope: adults on internal medicine wards with a diagnostic workup that is not yet clear (for example unexplained anaemia, fever or weight loss).
 
 **Your Role:** Product & Strategy lead at the market-leading hospital EHR vendor in Flanders; owner of this bet.
 
@@ -13,32 +13,30 @@
 ### Contextual Moat — 4/5
 *Workflow depth × switching cost. Would users leave in a weekend if a competitor showed up?*
 
-**Score rationale:** The data is created in our EHR across many hospitals; a single hospital's data team can analyse its own data, but only the network operator can show how its practice compares with other hospitals.
+**Score rationale:** The module sits in the clinical workstation where the history and every new result already land, and as a CE-marked medical device it is the version a hospital can officially use for diagnostic support; replacing a hospital EHR takes years. Not a 5, because a third-party assistant can plug into the same workflow through integrations, and the certification lead is temporary (estimated 2–3 years), not permanent.
 
-**Named attacker (from partner challenge):** Microsoft Fabric healthcare data solutions — turns EHR data into the OMOP model and lets a hospital's data team build patient cohorts on its own data. https://learn.microsoft.com/en-gb/industry/healthcare/healthcare-data-solutions/overview
+**Named attacker (from partner challenge):** Microsoft Dragon Copilot — clinical assistant with built-in, evidence-based decision support inside the EHR workflow. https://www.microsoft.com/en-us/health-solutions/clinical-workflow/dragon-copilot
 
 ---
 
-### Data Advantage — 4/5
+### Data Advantage — 3/5
 *Proprietary signal that compounds with usage. What do you see that OpenAI doesn't?*
 
-**Score rationale:** Every hospital that joins enlarges the cohorts for all others, every discharge adds a new outcome automatically, and readmissions in another hospital on the same system become visible; not a 5, because pooling depends on a legal basis and an agreement with every hospital.
+**Score rationale:** Every discharge gives us the confirmed diagnoses and the severity of illness of the stay, coded for the mandatory hospital registration, so we can measure each suggestion and calibrate its severity percentage on real outcomes. Physicians' marks on findings and suggestions add a correction signal. Capped at 3 because hospitals control the data, so cross-hospital calibration needs a legal basis and agreements per hospital, coded diagnoses follow registration rules rather than clinical truth, and suggestions that physicians follow can influence the labels they are measured against.
 
-**Named attacker (from partner challenge):** Epic Cosmos / CoMET — the same pooled-network model at a far larger scale (300M+ patients, 310 health systems), already forecasting length of stay and readmission. https://www.microsoft.com/en-us/research/?p=1148919
+**Named attacker (from partner challenge):** Epic Cosmos / CoMET — diagnosis prediction trained on records of 300M+ patients from 310 health systems. https://www.microsoft.com/en-us/research/?p=1148919
 
 ---
 
-### Platform Exposure — 4/5
+### Platform Exposure — 2/5
 *Encroachment risk × pivot speed. If Apple/Google/OpenAI ships your hero feature native — then what?*
 
-**Score rationale:** A consumer health model can explain guidelines, but it cannot see how patients in Belgian hospitals were treated or what happened to them; pivot speed is reasonable because the product describes rather than recommends.
+**Score rationale:** General health models already produce a prioritised differential with likelihoods and cited sources, but the reasoning alone is not the product: diagnostic support always needs medical validation, with a clinical evaluation for the intended purpose and certification, before a hospital can use it officially. A platform that ships the feature natively has to go through the same validation, and that validation belongs to the product, not to the model. What general models also lack is the record, its updates and calibration on confirmed outcomes. Pivot speed is low: a module that suggests diagnoses with a severity estimate is likely class IIb, so every change to the model or intended purpose needs new evidence and assessment.
 
-**Named attacker (from partner challenge):** Meta Muse Spark — free, health-focused model trained with 1,000+ physicians. https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/
+**Named attacker (from partner challenge):** OpenAI ChatGPT for Healthcare — enterprise product for hospitals with a clinical reasoning view that shows a differential diagnosis table with likelihoods and sources. https://openai.com/index/openai-for-healthcare/
 
 ---
 
 ## Top Vulnerability
-The moat only exists if hospitals agree to pool their data: without a legal basis for secondary use and trust that no hospital is exposed to its competitors, the network shrinks to single-hospital data that any data team can analyse. Second risk: users read "comparable patients did better with C" as a recommendation, while the difference may reflect which patients (or which hospitals' populations) got C. In an international setting the vulnerability grows: the network stops where hospitals use another EHR, each country has its own rules for secondary use of health data, and differences in coding, financing and how care is organised make patients across borders harder to compare.
 
-## Confidence Level
-M — the data and network position is strong and the use case is new, but data pooling, comparability and confounding are unproven.
+**Platform Exposure.** Differential reasoning is becoming a commodity, and our regulatory weight makes us slow to respond. The defence is not a better list, but a list that is always current with the patient's record, grounded in its findings, and calibrated on confirmed outcomes, built up during the 2–3 years before general models are certified for this use.
