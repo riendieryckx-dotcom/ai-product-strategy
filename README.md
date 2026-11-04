@@ -12,7 +12,7 @@
 | **The Moat** | M2 | [x] | `02-the-moat/` |
 | **The Margin** | M3 | [x] | `03-the-margin/` |
 | **The Contract** | M4 | [x] | `04-the-contract/` |
-| **The Guardrails** | M5 | [ ] | `05-the-guardrails/` |
+| **The Guardrails** | M5 | [x] | `05-the-guardrails/` |
 | **The Pitch** | M6 | [ ] | `06-the-pitch/` |
 
 ---
@@ -21,13 +21,13 @@
 
 **What we're building, for whom, why now.**
 
-- **Product:** Relevant History (working name) — a clinical decision support module in a hospital EHR for physicians on internal medicine wards. It shows the findings from the patient's own history that fit the current picture, and suggests possible diagnoses with a likelihood label and the estimated chance of major or extreme severity, updated with every new result. The physician decides.
+- **Product:** Relevant History — clinical decision support in a hospital EHR, during a stay or an outpatient workup: findings from the patient's own history and diagnosis suggestions with an estimated severity, updated with every new result. The physician decides.
 - **AI Value Archetype:** Copilot
 - **Vulnerability Scores:** Moat 4/5 · Data 3/5 · Platform 2/5
-- **Top Risk:** Platform Exposure — differential reasoning is becoming a commodity, and our regulatory weight makes us slow to respond.
-- **Confidence:** M — the data position and the place in the workflow are strong; the classification, the legal basis for outcome data and the clinical value are not yet proven.
+- **Top Risk:** Platform Exposure — differential reasoning is becoming a commodity, and we pivot slowly.
+- **Confidence:** M — strong data and workflow position; classification, legal basis and clinical value still to prove.
 - **Prototype:** [Relevant History – prototype](https://claude.ai/artifact/NYFskdj1szmhGDcKuRVgWQ) (synthetic patient)
-- **Kill Criteria:** stop if the top 5 is no better than a list based on how common each diagnosis is, if the severity percentage does not separate severe stays better than admission data, if physicians open the module in fewer than half of eligible stays, or if there is no path to clinical use within 36 months or no legal basis for calibration.
+- **Kill Criteria:** stop if the list beats no simple baseline, physicians do not diagnose better, tests rise without benefit, the module goes unused, or certification or the legal basis fails.
 
 → Details: [`01-the-bet/`](01-the-bet/)
 
@@ -38,10 +38,10 @@
 **Why this won't get copied in 6 months.**
 
 - **Data Flywheel Score:** 12/20
-- **Weakest Loop:** Preference (2/5) — calibrated per hospital, but the same for every physician on purpose.
-- **Competitive Position:** Two axes: access to the patient's full record and its updates (low to high), and certified for diagnostic support in a European hospital (no to yes). We aim for high and yes. OpenAI ChatGPT for Healthcare sits at low record access (only what a hospital connects) and not certified for this use. Microsoft Dragon Copilot sits at medium record access (the conversation and the note) and not certified for this use. A specialised diagnostic vendor such as Isabel DDx sits at low record access, with its European certification status to verify. Draft placement, to check before presenting.
-- **Encroachment Defense:** suggestions grounded in the full history and calibrated on each hospital's confirmed outcomes, the certified status, and a module that can be called from wherever the physician works, including from a documentation assistant.
-- **Vendor Portability:** Partial — Google Gemini on Vertex AI is the primary model; "ready" means ready to switch to a validated open-weight standby, not to any new model.
+- **Weakest Loop:** Preference (2/5) — calibrated per hospital, the same for every physician on purpose.
+- **Competitive Position:** axes: access to the full record (low–high) and certified for diagnostic support in the EU (no–yes). We aim for high and yes; ChatGPT for Healthcare is low and no, Dragon Copilot medium and no, Isabel DDx low with its EU status to verify. Draft placement.
+- **Encroachment Defense:** grounded in the full history, calibrated on each hospital's outcomes, certified, and callable from other tools.
+- **Vendor Portability:** Partial — Google Gemini primary; ready only for a validated open-weight standby.
 
 → Details: [`02-the-moat/`](02-the-moat/)
 
@@ -51,11 +51,11 @@
 
 **Will this make money or bleed it?**
 
-- **Gross Margin (current):** Not applicable — the EHR has no diagnostic support module today, so there is no current margin to compare with.
-- **Gross Margin (AI-adjusted):** about 67%, rising to about 74% once clinical review falls to 3 hours; about 45% while the one-off certification is earned back. Illustrative assumptions.
-- **Pricing Model:** hybrid — a fixed €5,000 per hospital per month, tiered by volume, with a 10% credit for a quarter in which the reliability contract's accuracy target is missed; not per suggestion, seat or clinical outcome.
-- **Cascading Strategy:** Gemini Flash-class on every new result; Gemini Pro-class only when the selected findings change, a result is out of range, or the physician asks, and always for a possible severity of 40% or more (expected 80% triage only, 20% both).
-- **Break-even at:** about 240 hospital-months of use (for example 20 hospitals for 12 months) to earn back the assumed €800,000 certification from the €3,367 contribution per hospital per month. Development costs are not included.
+- **Gross Margin (current):** not applicable — no diagnostic support module today.
+- **Gross Margin (AI-adjusted):** about 71%, about 78% later, about 55% while certification is earned back. Illustrative.
+- **Pricing Model:** hybrid — €7,000 per hospital per month (€5,000 stays, €2,000 outpatient), tiered, with a 10% reliability credit.
+- **Cascading Strategy:** Gemini Flash-class on every result, Pro-class when the picture changes or severity can be high (80/20).
+- **Break-even at:** about 160 hospital-months to earn back the assumed €800,000 certification (€4,953 contribution per month); development not included.
 
 → Details: [`03-the-margin/`](03-the-margin/)
 
@@ -65,11 +65,11 @@
 
 **Why users will trust a probabilistic system.**
 
-- **Reliability Target:** the confirmed diagnosis in the top 5 in at least 85% of stays, and at least 10 points above a list based on how common each diagnosis is; no claim shown to a physician that is not in the record.
-- **Golden Dataset:** 12 rows, 4 adversarial
-- **Confidence UX:** three tiers based on the chance that the confirmed diagnosis is in the list; below 50% no ranked list is shown, only the reason and the history findings; never auto-applied in any tier.
-- **HITL Architecture:** the treating physician confirms each diagnosis and severity at discharge; triggered reviews stay at 100%; a random sample for post-market surveillance drops from 5% to 2%, never to zero.
-- **Failure Mode Coverage:** covered in the golden rows: ungrounded claims, test, treatment or dose content, prompt injection, conflicting reports, negated findings, referral questions, known diagnoses, missing history and threshold cases. Not yet covered: rare diagnoses, severity 4 stays and records in French.
+- **Reliability Target:** top 5 ≥85% and 10 points above baseline; must-not-miss ≥95%; confidence tiers that hold; no ungrounded claim shown.
+- **Golden Dataset:** 35 rows, 4 adversarial; 15 standard (43%), 3 outpatient; labelled by two physicians, from unpublished records
+- **Confidence UX:** high >90%, medium 70–90%, low <70% with no ranked list and a review; never auto-applied.
+- **HITL Architecture:** the treating physician confirms labels at discharge; the vendor's clinical team reviews triggers and a 5% → 2% sample.
+- **Failure Mode Coverage:** adversarial, must-not-miss, subgroups, data quality, stability, grounding and outpatient follow-up covered; rare diagnoses and the effect on physicians not yet.
 
 → Details: [`04-the-contract/`](04-the-contract/)
 
@@ -79,11 +79,11 @@
 
 **What breaks when this scales — and what compounds.**
 
-- **Compounding System:** [describe feedback loops]
-- **Governance Posture:** [approach]
-- **Shadow AI Status:** __ tools found, __ triaged
-- **Agent Boundaries:**
-- **Regulatory Exposure:** likely a medical device in class IIb under the MDR, a high-risk AI system under the EU AI Act, and health data under GDPR article 9. The vendor is the manufacturer under the MDR and the processor under the GDPR; each hospital is the data controller. To confirm with regulatory, legal and the DPO.
+- **Compounding System:** three loops (recursive learning, cross-domain transfer, network intelligence): one broken, two missing. Freeze test: still winning today, so we scale until the recalibration loop ships.
+- **Governance Posture:** the module never writes to the record; six escalation triggers; audit from real time to quarterly with named roles; Level 2 today, Level 3 target.
+- **Shadow AI Status:** 5 workarounds (hypotheses), 5 triaged: 2 build, 2 partner, 1 ignore
+- **Agent Boundaries:** two read-only models without memory behind a gateway that stops the chain on a failed check.
+- **Regulatory Exposure:** likely MDR class IIb, EU AI Act high risk, GDPR article 9. The vendor is manufacturer and processor; each hospital is data controller. To confirm with regulatory, legal and the DPO.
 
 → Details: [`05-the-guardrails/`](05-the-guardrails/)
 
@@ -103,4 +103,4 @@
 
 ---
 
-> Written from the perspective of the EHR vendor, which builds, certifies and sells the module; hospitals buy and use it. All data in this repo is synthetic. No real patient data, prices or customer data are used. Every file has a Dutch translation (`*.nl.md`); English is the source.
+> Written from the perspective of the EHR vendor. All data is synthetic. Every file has a Dutch translation (`*.nl.md`); English is the source.
