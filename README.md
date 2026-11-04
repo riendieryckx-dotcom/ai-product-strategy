@@ -52,10 +52,10 @@
 **Will this make money or bleed it?**
 
 - **Gross Margin (current):** Not applicable — the EHR has no diagnostic support module today, so there is no current margin to compare with.
-- **Gross Margin (AI-adjusted):** about 67%; about 45% while the one-off certification is earned back. Illustrative assumptions.
-- **Pricing Model:** hybrid — a fixed €5,000 per hospital per month, tiered by volume, not per suggestion.
-- **Cascading Strategy:** Gemini Flash-class on every new result; Gemini Pro-class only when the selected findings change, a result is out of range, or the physician asks (expected 60% triage only, 40% both).
-- **Break-even at:** about 240 hospital-months of use (for example 20 hospitals for 12 months) to earn back the assumed €800,000 certification from the €3,339 contribution per hospital per month. Development costs are not included.
+- **Gross Margin (AI-adjusted):** about 67%, rising to about 74% once clinical review falls to 3 hours; about 45% while the one-off certification is earned back. Illustrative assumptions.
+- **Pricing Model:** hybrid — a fixed €5,000 per hospital per month, tiered by volume, with a 10% credit for a quarter in which the reliability contract's accuracy target is missed; not per suggestion, seat or clinical outcome.
+- **Cascading Strategy:** Gemini Flash-class on every new result; Gemini Pro-class only when the selected findings change, a result is out of range, or the physician asks, and always for a possible severity of 40% or more (expected 80% triage only, 20% both).
+- **Break-even at:** about 240 hospital-months of use (for example 20 hospitals for 12 months) to earn back the assumed €800,000 certification from the €3,367 contribution per hospital per month. Development costs are not included.
 
 → Details: [`03-the-margin/`](03-the-margin/)
 
@@ -83,7 +83,7 @@
 - **Governance Posture:** [approach]
 - **Shadow AI Status:** __ tools found, __ triaged
 - **Agent Boundaries:**
-- **Regulatory Exposure:** likely a medical device in class IIb under the MDR, a high-risk AI system under the EU AI Act, and health data under GDPR article 9; to confirm with regulatory, legal and the DPO.
+- **Regulatory Exposure:** likely a medical device in class IIb under the MDR, a high-risk AI system under the EU AI Act, and health data under GDPR article 9. The vendor is the manufacturer under the MDR and the processor under the GDPR; each hospital is the data controller. To confirm with regulatory, legal and the DPO.
 
 → Details: [`05-the-guardrails/`](05-the-guardrails/)
 
@@ -103,4 +103,4 @@
 
 ---
 
-> All data in this repo is synthetic. No real patient data, prices or customer data are used. Every file has a Dutch translation (`*.nl.md`); English is the source.
+> Written from the perspective of the EHR vendor, which builds, certifies and sells the module; hospitals buy and use it. All data in this repo is synthetic. No real patient data, prices or customer data are used. Every file has a Dutch translation (`*.nl.md`); English is the source.
