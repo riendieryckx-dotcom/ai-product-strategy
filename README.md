@@ -8,11 +8,11 @@
 
 | Component | Module | Status | Key Artifact |
 |-----------|--------|--------|-------------|
-| **The Bet** | M1 | [x] | `01-the-bet/` |
-| **The Moat** | M2 | [x] | `02-the-moat/` |
-| **The Margin** | M3 | [x] | `03-the-margin/` |
-| **The Contract** | M4 | [x] | `04-the-contract/` |
-| **The Guardrails** | M5 | [x] | `05-the-guardrails/` |
+| **The Bet** | M1 | [OK] | `01-the-bet/` |
+| **The Moat** | M2 | [OK] | `02-the-moat/` |
+| **The Margin** | M3 | [OK] | `03-the-margin/` |
+| **The Contract** | M4 | [OK] | `04-the-contract/` |
+| **The Guardrails** | M5 | [OK] | `05-the-guardrails/` |
 | **The Pitch** | M6 | [ ] | `06-the-pitch/` |
 
 ---
@@ -66,7 +66,7 @@
 **Why users will trust a probabilistic system.**
 
 - **Reliability Target:** top 5 ≥85% and 10 points above baseline; must-not-miss ≥95%; confidence tiers that hold; no ungrounded claim shown.
-- **Golden Dataset:** 35 rows, 4 adversarial; 15 standard (43%), 3 outpatient; labelled by two physicians, from unpublished records
+- **Golden Dataset:** 105 rows, 10 adversarial; 47 standard (45%), 15 outpatient; labelled by two physicians, from unpublished records
 - **Confidence UX:** high >90%, medium 70–90%, low <70% with no ranked list and a review; never auto-applied.
 - **HITL Architecture:** the treating physician confirms labels at discharge; the vendor's clinical team reviews triggers and a 5% → 2% sample.
 - **Failure Mode Coverage:** adversarial, must-not-miss, subgroups, data quality, stability, grounding and outpatient follow-up covered; rare diagnoses and the effect on physicians not yet.
