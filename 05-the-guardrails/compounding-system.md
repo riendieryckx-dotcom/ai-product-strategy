@@ -17,11 +17,51 @@ Discharge codes never flow back to the physician, outpatient diagnoses are not c
 
 ## Governance Policy
 
-**Scope:** Relevant History in internal medicine, in stays and outpatient workups; not the prototype or other AI in the EHR.
-**Autonomy boundaries:** read, select, draft and show: auto. Write to the record: never. Recalibrate: weekly, within preset limits, after the golden suite passes. Change the model: never auto.
-**Escalation triggers:** low confidence, a safety flag, a rejected high-severity suggestion, a missed serious case, a subgroup or drift alert, a suspected incident (details in `04-the-contract/golden-dataset.md`).
-**Audit cadence:** real time (engineering), weekly (product owner), monthly (lead of the clinical team), quarterly with regulatory, security, legal and the DPO (sign-off: clinical safety officer). Maturity: Level 2 today (golden set, confidence tiers, reliability contract); Level 3 with a model card and a public bias posture backed by the subgroup reports.
-**Regulatory exposure (EU AI Act / other):** AI Act high risk; MDR likely class IIb; GDPR article 9, with the hospital as controller, the vendor as processor and Google as sub-processor; Belgian eHealth law. To confirm with regulatory, legal and the DPO.
+**Scope:**
+- **In:** Relevant History in internal medicine, during hospital stays and outpatient workups.
+- **Out:** the prototype on synthetic data, and other AI features in the EHR, which have their own policies.
+
+**Autonomy boundaries:**
+
+| Action | Autonomy |
+|--------|----------|
+| Read the patient's record, select findings, draft and show suggestions | Automatic |
+| Write anything to the record (a diagnosis, a code, a problem-list entry, an order, a message to a patient) | Never by the module; only the physician |
+| Recalibrate likelihood and severity | Automatic, weekly, within preset limits, and only after the golden suite passes |
+| Release a change outside those limits | Only with approval of the clinical safety officer |
+| Change the model or the model version | Never automatic; only through a validated release |
+
+**Escalation triggers:** a human reviews the case when:
+1. confidence is low (below 70%);
+2. the gateway raises a safety flag (a claim not in the record, or a test, treatment or dose);
+3. a physician rejects a suggestion with a severity of 40% or more;
+4. a serious case was missed: a confirmed diagnosis that was not in the list during a severity 3–4 stay, or an unplanned admission within 30 days of an outpatient workup;
+5. a subgroup or drift alert fires;
+6. a serious incident is suspected, which also starts vigilance.
+
+Thresholds and details: `04-the-contract/golden-dataset.md`.
+
+**Audit cadence:**
+
+| Cadence | What is checked | Owner |
+|---------|-----------------|-------|
+| Real time | Grounding check on every output | Engineering (on-call) |
+| Weekly | Golden suite, judge run and the recalibration gate | Product owner |
+| Monthly | Accuracy and tier calibration per hospital; the review sample | Lead of the clinical team |
+| Quarterly | Subgroups, independent reference, hospital reports, and a policy review with regulatory, security, legal and the DPO | Clinical safety officer (sign-off) |
+
+Maturity: Level 2 today (golden set, confidence tiers, reliability contract). Target Level 3: a model card and a public bias posture, backed by the subgroup reports.
+
+**Regulatory exposure (EU AI Act / other):**
+
+| Framework | Exposure |
+|-----------|----------|
+| EU AI Act | High risk: an AI system in a medical device that needs a notified body |
+| MDR | Likely class IIb; serious incidents reported within 2, 10 or 15 calendar days |
+| GDPR | Article 9 health data; the hospital is controller, the vendor processor, Google sub-processor; no training on hospital data |
+| Belgian eHealth law | Therapeutic relationship and consent for the eHealth exchange |
+
+To confirm with regulatory, legal and the DPO.
 
 ## Agent Topology
 
