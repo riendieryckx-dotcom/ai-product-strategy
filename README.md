@@ -8,11 +8,11 @@
 
 | Component | Module | Status | Key Artifact |
 |-----------|--------|--------|-------------|
-| **The Bet** | M1 | [OK] | `01-the-bet/` |
-| **The Moat** | M2 | [OK] | `02-the-moat/` |
-| **The Margin** | M3 | [OK] | `03-the-margin/` |
-| **The Contract** | M4 | [OK] | `04-the-contract/` |
-| **The Guardrails** | M5 | [OK] | `05-the-guardrails/` |
+| **The Bet** | M1 | [x] | `01-the-bet/` |
+| **The Moat** | M2 | [x] | `02-the-moat/` |
+| **The Margin** | M3 | [x] | `03-the-margin/` |
+| **The Contract** | M4 | [x] | `04-the-contract/` |
+| **The Guardrails** | M5 | [x] | `05-the-guardrails/` |
 | **The Pitch** | M6 | [ ] | `06-the-pitch/` |
 
 ---
@@ -79,9 +79,9 @@
 
 **What breaks when this scales — and what compounds.**
 
-- **Compounding System:** three loops (recursive learning, cross-domain transfer, network intelligence): one broken, two missing. Freeze test: still winning today, so we scale until the recalibration loop ships.
+- **Compounding System:** three loops chosen for this product (implicit use, confirmed outcomes, missed cases to eval): one broken, two missing. Freeze test: still winning today, so we scale until these loops run.
 - **Governance Posture:** the module never writes to the record; six escalation triggers; audit from real time to quarterly with named roles; Level 2 today, Level 3 target.
-- **Shadow AI Status:** 5 workarounds (hypotheses), 5 triaged: 2 build, 2 partner, 1 ignore
+- **Shadow AI Status:** 5 workarounds (hypotheses), triaged: 3 build, 2 partner
 - **Agent Boundaries:** two read-only models without memory behind a gateway that stops the chain on a failed check.
 - **Regulatory Exposure:** likely MDR class IIb, EU AI Act high risk, GDPR article 9. The vendor is manufacturer and processor; each hospital is data controller. To confirm with regulatory, legal and the DPO.
 
