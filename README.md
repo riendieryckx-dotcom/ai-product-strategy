@@ -13,7 +13,7 @@
 | **The Margin** | M3 | [x] | `03-the-margin/` |
 | **The Contract** | M4 | [x] | `04-the-contract/` |
 | **The Guardrails** | M5 | [x] | `05-the-guardrails/` |
-| **The Pitch** | M6 | [ ] | `06-the-pitch/` |
+| **The Pitch** | M6 | [x] | `06-the-pitch/` |
 
 ---
 
@@ -93,11 +93,11 @@
 
 **How you get this funded, shipped, and adopted.**
 
-- **Horizon 1 (Now):**
-- **Horizon 2 (Next):**
-- **Horizon 3 (Bet):**
-- **Board Narrative:** [1-sentence thesis]
-- **Key Metric:**
+- **Horizon 1 (Now):** gateway and automated golden suite, label audit, vignette study, classification opinion, legal basis with 2 pilot hospitals (0–3 months).
+- **Horizon 2 (Next):** retrospective test, silent mode with implicit-use logging, a validated standby model, the quality system and technical file (3–9 months), each with a kill criterion.
+- **Horizon 3 (Bet):** supervised pilot, pooled calibration across hospitals, and the module callable from other tools (9–18 months).
+- **Board Narrative:** we bring the history findings that matter into the internist's workflow with their source, suggest possible diagnoses with a measured severity, and get better on every confirmed outcome.
+- **Key Metric:** the share of eligible stays and workups in which a history finding shown by the module was used by the physician.
 
 → Details: [`06-the-pitch/`](06-the-pitch/)
 
